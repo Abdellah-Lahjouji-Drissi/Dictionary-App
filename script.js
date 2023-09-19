@@ -11,7 +11,7 @@ inpbtn.addEventListener( "click" , () => {
     fetch(url)
     .then((response) => response.json())
     .then((data => {
-        console.log(data);
+        // console.log(data);
         result.innerHTML = `
     <div class="word">
             <h3>${word}</h3>
@@ -28,9 +28,9 @@ inpbtn.addEventListener( "click" , () => {
         </div>
         <p class="word-meaning">${data[0].meanings[0].definitions[0].definition
         }</p>
-        <p class="word-example">${data[0].meanings[0].definitions[0].example || ""}</p>;
+        <p class="word-example">${data[0].meanings[0].definitions[0].example || ""}</p>
     `;
-    sound.setAttribute( "src" , `https:${data[0].phonetics[0].audio}`);
+    sound.setAttribute( "src" , `${data[0].phonetics[0].audio}`);
     }))
     .catch(  () =>{
         result.innerHTML = `<h3 class="error">Couldn't find the Word </h3>`
